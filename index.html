@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <center>
+        <header>
+            <h2>
+                Calculator
+            </h2>
+        </header>
+
+        <div class="input-container">
+            <div class="number1-container" style="margin-bottom: 15px;">
+                <label for="num1">Number 1 : </label>
+                <input type="number" placeholder="Input Number1" id="num1">
+            </div>
+
+            <select id="operator" style="margin-bottom: 15px;">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+
+            <div class="number2-container" style="margin-bottom: 15px;">
+                <label for="num2">Number 2 : </label>
+                <input type="number" placeholder="Input Number2" id="num2">
+            </div>
+        </div>
+
+        <button onclick=Cal()>Cal</button>
+        <button onclick=Clear()>Clear</button>
+
+        <p id="result">Result : ...</p>
+    </center>
+
+    <script src="API.js"></script>
+
+</body>
+</html>
