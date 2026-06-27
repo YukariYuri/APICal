@@ -4,8 +4,8 @@ async function Cal() {
     a = document.getElementById("num1").value;
     b = document.getElementById('num2').value;
     op = document.getElementById("operator").value;
-    
-    if (isNaN(a) || isNaN(b) || a === "" || b === "") 
+
+    if (isNaN(Number(a)) || isNaN(Number(b)) || a === "" || b === "") 
         return alert("Number invalid or exceeds limit.");
     
     const response = await fetch(`${ApiPort}/Cal?a=${a}&b=${b}&op=${op}`)
