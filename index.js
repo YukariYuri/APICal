@@ -6,39 +6,40 @@ app.use(cors())
 
 const Port = 3000
 
-function Cal(a, b, op) {
-    let aN = parseFloat(a);
-    let bN = parseFloat(b);
+app.get('/plus', (req, res) => {
+    let a = parseFloat(req.query.a);
+    let b = parseFloat(req.query.b);
+    let result = a + b;
+    return res.json({
+        "Result" : result
+    })
+})
 
-    let result;
-    switch (op) {
-        case "plus" : result = aN + bN; break;
-        case "minus" : result = aN - bN; break;
-        case "times" : result = aN * bN; break;
-        case "over" :
-            if ((aN || aN === 0) && bN === 0) result = "The value is cannot be determined.";
-            else result = aN / bN
-            break;
-        default: return {error : "invalid operator."};
-    }
-    return result;
-}
+app.get('/minus', (req, res) => {
+    let a = parseFloat(req.query.a);
+    let b = parseFloat(req.query.b);
+    let result = a - b;
+    return res.json({
+        "Result" : result
+    })
+})
 
-app.get('/Cal', (req, res) => {
-    let a = req.query.a;
-    let b = req.query.b;
-    let op = req.query.op;
+app.get('/times', (req, res) => {
+    let a = parseFloat(req.query.a);
+    let b = parseFloat(req.query.b);
+    let result = a * b;
+    return res.json({
+        "Result" : result
+    })
+})
 
-    let result = Cal(a, b, op);
-
-    if (result.error) {
-        return res.status(404).json({
-            "error": result.error
-        })
-    }
-
-    res.json({
-        "Result": result,
+app.get('/over', (req, res) => {
+    let a = parseFloat(req.query.a);
+    let b = parseFloat(req.query.b);
+    if ((a || a === 0) && b === 0) return res.json({ error : "The value is cannot be determined."});
+    let result = a / b;
+    return res.json({
+        "Result" : result
     })
 })
 

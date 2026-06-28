@@ -8,7 +8,7 @@ async function Cal() {
     if (isNaN(Number(a)) || isNaN(Number(b)) || a === "" || b === "") 
         return alert("Number invalid or exceeds limit.");
     
-    const response = await fetch(`${ApiPort}/Cal?a=${a}&b=${b}&op=${op}`)
+    const response = await fetch(`${ApiPort}/${op.toLowerCase()}?a=${a}&b=${b}`)
         .then(res => res.json())
 
     if (!response.error) {
